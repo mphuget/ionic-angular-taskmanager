@@ -13,5 +13,12 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-list *ngFor="let member of team">
+    <ion-item>
+      <ion-label>{{member.firstName}}</ion-label>
+      <ion-label>{{member.lastName}}</ion-label>
+    </ion-item>
+  </ion-list>
+
   <ion-button expand="block">Add a member</ion-button>
 </ion-content>
