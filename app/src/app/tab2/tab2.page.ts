@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import {TeamService} from '../services/team.service';
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -7,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  team : any;
+
+  constructor(private ts : TeamService) {
+
+    this.team = ts.data;
+    console.log(this.team);
+    
+  }
 
 }
