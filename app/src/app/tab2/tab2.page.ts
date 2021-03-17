@@ -11,11 +11,14 @@ export class Tab2Page {
 
   team : any;
 
-  constructor(private ts : TeamService) {
+  constructor(private ts : TeamService,) {
 
     this.team = ts.data;
     console.log(this.team);
     
   }
+
+ 
+
 
 }
