@@ -9,16 +9,6 @@ export class TeamService {
   member : any;
   members:  AngularFireList<any> = null;
 
-  data : any = [
-    {
-      firstName : "John",
-      lastName : "Doe",
-    },
-    {
-      firstName: "Jane",
-      lastName: "Doe"
-    }
-  ];
   constructor(private db : AngularFireDatabase) { 
   
   }
@@ -35,7 +25,7 @@ export class TeamService {
 
   getMembers() : AngularFireList<any> {
 
-    this.members = this.db.list('members');
+    this.members = this.db.list('/members');
     return this.members;
   }
 }

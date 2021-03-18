@@ -17,6 +17,8 @@
     <ion-item>
       <ion-label>{{member.firstName}}</ion-label>
       <ion-label>{{member.lastName}}</ion-label>
+      <ion-button color="warning" (click)="view(member.key)">V</ion-button>
+      <ion-button color="danger" (click)="delete(member.key)">D</ion-button>
     </ion-item>
   </ion-list>
 

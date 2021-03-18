@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TeamService} from '../services/team.service';
 import {AngularFireList} from '@angular/fire/database';
-
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tab2',
@@ -20,11 +20,26 @@ export class Tab2Page implements OnInit {
  
   ngOnInit() {
     this.members = this.ts.getMembers();
-    this.members.valueChanges().subscribe(members => {
-      this.team = members;
-      console.log(this.team);
-      });
+
+    this.members.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    ).subscribe(data => {
+      this.team = data;
+    });
+  }
+
+  view(key : any) {
+    console.log(key);
+  }
+
+  delete(key : any) {
+    console.log(key);
   }
 
 
 }
+
