@@ -7,6 +7,7 @@ import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angula
 export class TeamService {
 
   member : any;
+  members:  AngularFireList<any> = null;
 
   data : any = [
     {
@@ -30,5 +31,11 @@ export class TeamService {
       lastName : lastName
     });
 
+  }
+
+  getMembers() : AngularFireList<any> {
+
+    this.members = this.db.list('members');
+    return this.members;
   }
 }
