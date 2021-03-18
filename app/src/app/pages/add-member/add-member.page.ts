@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import {TeamService} from '../../services/team.service';
 
 @Component({
   selector: 'app-add-member',
@@ -10,7 +11,8 @@ export class AddMemberPage implements OnInit {
 
   private member : FormGroup;
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, 
+              public ts : TeamService) { 
 
     this.member = this.fb.group({
       firstName: ['', Validators.required],
@@ -22,4 +24,7 @@ export class AddMemberPage implements OnInit {
   ngOnInit() {
   }
 
+  addMember() {
+    this.ts.addMember(this.member.value['firstName'], this.member.value['lastName'])
+  }
 }

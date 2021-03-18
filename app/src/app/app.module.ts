@@ -7,8 +7,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, SETTINGS } from '@angular/fire/firestore';
 
 @NgModule({
